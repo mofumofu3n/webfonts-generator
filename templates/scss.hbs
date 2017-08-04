@@ -9,7 +9,7 @@
 
 $webfont-icons: map-merge($webfont-icons, (
 	{{#each codepoints}}
-		'{{@key}}': ('{{../fontName}}' '{{this}}'),
+		'{{classPrefix}}{{@key}}': ('{{../fontName}}' '{{this}}'),
 	{{/each}}
 ));
 

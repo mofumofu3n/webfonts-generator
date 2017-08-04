@@ -169,7 +169,7 @@ Template receives options from `options.templateOptions` along with the followin
 
 Type: `object`
 
-Additional options for CSS & HTML templates, that extends default options.
+Additional options for SCSS, CSS & HTML templates, that extends default options.
 
 Default options are:
 ```js
