@@ -1,3 +1,7 @@
+0.4.2
+
+* Fix src in media query.
+
 0.4.1
 
 * Add compatible with fontcustom template.
