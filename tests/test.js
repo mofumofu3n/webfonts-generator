@@ -29,7 +29,7 @@ describe('webfont', function() {
 	}
 
 	afterEach(function() {
-		var files = _.map(fs.readdirSync(DEST), function(file) {
+    var files = _.map(fs.readdirSync(DEST), function(file) {
 			return path.join(DEST, file)
 		})
 		for (var i in files) fs.unlinkSync(files[i])
@@ -223,6 +223,24 @@ describe('webfont', function() {
 				var css = rendered.css.toString()
 				assert(css.indexOf(FONT_NAME) !== -1)
 				assert(css.indexOf(FONT_NAME_2) !== -1)
+			})
+		})
+	})
+
+	describe('fontcustom template', function() {
+		it('creates mixins that can be used to create icons styles', function(done) {
+			var DEST_CSS = path.join(DEST, FONT_NAME + '_fontcustom' + '.scss')
+			var options = _.extend({}, OPTIONS, {
+				cssTemplate: webfontsGenerator.templates.fontcustom,
+				cssDest: DEST_CSS
+			})
+			webfontsGenerator(options, function(err) {
+				if (err) return done(new Error(err))
+
+        assert(fs.existsSync(DEST_CSS), 'SCSS file exists')
+        assert(fs.statSync(DEST_CSS).size > 0, 'SCSS file is not empty')
+
+				done(null)
 			})
 		})
 	})
