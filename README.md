@@ -124,6 +124,7 @@ Paths of default templates are stored in the `webfontsGenerator.templates` objec
 	@import 'iconfont';
 	.icon { @include webfont-icon('icon'); }
 	```
+* `webfontsGenerator.tmeplates.fontcustom` &ndash; Compatible with [Fontcustom](https://github.com/FontCustom/fontcustom) scss template path.
 
 ### cssFontsPath
 
