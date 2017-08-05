@@ -51,24 +51,24 @@ var makeSrc = function(options, urls) {
 }
 
 var makeCtx = function(options, urls) {
-	// Transform codepoints to hex strings
-	var codepoints = _.object(_.map(options.codepoints, function(codepoint, name) {
-		return [name, codepoint.toString(16)]
-	}))
+  // Transform codepoints to hex strings
+  var codepoints = _.object(_.map(options.codepoints, function(codepoint, name) {
+    return [name, codepoint.toString(16)]
+  }))
 
-	return _.extend({
-		fontName: options.fontName,
-		src: makeSrc(options, urls),
-		codepoints: codepoints
-	}, options.templateOptions)
+  return _.extend({
+    fontName: options.fontName,
+    src: makeSrc(options, urls),
+    codepoints: codepoints
+  }, options.templateOptions)
 }
 
 var renderCss = function(options, urls) {
-	if (typeof urls === 'undefined') urls = makeUrls(options)
-	var ctx = makeCtx(options, urls)
-	var source = fs.readFileSync(options.cssTemplate, 'utf8')
-	var template = handlebars.compile(source)
-	return template(ctx)
+  if (typeof urls === 'undefined') urls = makeUrls(options)
+  var ctx = makeCtx(options, urls)
+  var source = fs.readFileSync(options.cssTemplate, 'utf8')
+  var template = handlebars.compile(source)
+  return template(ctx)
 }
 
 module.exports = renderCss
