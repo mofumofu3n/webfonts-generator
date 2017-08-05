@@ -9,9 +9,10 @@ var renderHtml = require('./renderHtml')
 
 var TEMPLATES_DIR = path.join(__dirname, '..', 'templates')
 var TEMPLATES = {
-	css: path.join(TEMPLATES_DIR, 'css.hbs'),
-	scss: path.join(TEMPLATES_DIR, 'scss.hbs'),
-	html: path.join(TEMPLATES_DIR, 'html.hbs')
+       css: path.join(TEMPLATES_DIR, 'css.hbs'),
+       scss: path.join(TEMPLATES_DIR, 'scss.hbs'),
+       html: path.join(TEMPLATES_DIR, 'html.hbs'),
+       fontcustom: path.join(TEMPLATES_DIR, 'fontcustom.hbs')
 }
 
 var DEFAULT_TEMPLATE_OPTIONS = {
