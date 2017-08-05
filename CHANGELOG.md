@@ -1,3 +1,7 @@
+0.4.1
+
+* Add compatible with fontcustom template.
+
 0.4.0
 
 * Add woff2 support.
