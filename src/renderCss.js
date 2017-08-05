@@ -59,6 +59,7 @@ var makeCtx = function(options, urls) {
   return _.extend({
     fontName: options.fontName,
     src: makeSrc(options, urls),
+    urls: urls,
     codepoints: codepoints
   }, options.templateOptions)
 }

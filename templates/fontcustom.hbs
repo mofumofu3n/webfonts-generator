@@ -1,0 +1,50 @@
+{{!-- 
+Compatible fontcustom scss template 
+https://github.com/FontCustom/fontcustom
+--}}
+
+@font-face {
+  font-family: "{{fontName}}";
+  src: {{{src}}};
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "{{fontName}}";
+    //src: url("{{lookup ../urls svg}}") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+{{#each codepoints}}
+{{# if @last}}
+.{{../classPrefix}}{{@key}}:before {
+{{else}}
+.{{../classPrefix}}{{@key}}:before,
+{{/if}}
+{{/each}}
+    display: inline-block;
+    font-family: "{{fontName}}";
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+{{#each codepoints}}
+.{{../classPrefix}}{{@key}}:before { content: "\\{{this}}";}
+{{/each}}
+
+{{#each codepoints}}
+$font-{{../classPrefix}}{{@key}}: "\\{{this}}";
+{{/each}}  
